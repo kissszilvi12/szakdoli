@@ -1,0 +1,25 @@
+<form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+  <div class="form-group">
+    <label>Username</label>
+    <input
+      type="text"
+      class="form-control"
+      required
+      name="username"
+      [(ngModel)]="userCredentials.username"
+      #usernameControl="ngModel"
+      [ngClass]="{ 'is-invalid': usernameControl.touched && usernameControl.invalid }">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input
+      type="password"
+      class="form-control"
+      required
+      name="password"
+      [(ngModel)]="userCredentials.password"
+      #passwordControl="ngModel"
+      [ngClass]="{ 'is-invalid': passwordControl.touched && passwordControl.invalid }">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Sign In</button>
+</form>

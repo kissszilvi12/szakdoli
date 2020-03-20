@@ -1,0 +1,4 @@
+<div *ngIf="(post | async) as p">
+    <h5>Are you sure you want to delete "{{ p.title }}"?</h5>
+    <button type="button" class="btn btn-danger" (click)="confirm(p.postNo)">Confirm</button>
+</div>

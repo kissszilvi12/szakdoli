@@ -1,0 +1,6 @@
+<h5>Tags</h5>
+<ul>
+  <li *ngFor="let tag of tags | async">
+    <a routerLink="/tag/{{ tag }}">{{ tag }}</a>
+  </li>
+</ul>
