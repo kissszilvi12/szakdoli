@@ -1,0 +1,5 @@
+package hu.gerida.model;
+
+public enum Rank {
+    PLUTO, NEPTUNUSZ, URANUSZ, SZATURNUSZ, JUPITER, MARS, FOLD, VENUSZ, MERKUR, BRONZ_APROD, EZUST_APROD,
+    ARANY_APROD}
