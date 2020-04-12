@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tábor szervező alkalmazás</string>
+    <string name="email">Email</string>
+    <string name="gyerekek">Gyerekek</string>
+    <string name="taborok">Táborok</string>
+    <string name="email_kuldes">Email küldés</string>
+</resources>
