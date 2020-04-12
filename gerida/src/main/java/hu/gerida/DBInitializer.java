@@ -16,7 +16,6 @@ import hu.gerida.model.Person;
 import hu.gerida.model.Planet;
 import hu.gerida.model.Position;
 import hu.gerida.repository.CampRepository;
-//import hu.gerida.model.Theme;
 import hu.gerida.repository.ParentRepository;
 import hu.gerida.repository.PersonRepository;
 
@@ -30,21 +29,23 @@ public class DBInitializer implements ApplicationListener<ApplicationReadyEvent>
     private CampRepository campRepository;
 
     public void savePerson()
-    {       
+    {
+               
         //Create a new Camp object hp_ea
-        Camp hp_ea = new Camp("HP és az eltűnt mágia", "17-06-2020", "26-06-2020", "HARRY_POTTER", 43000, "Parádfürdő", "MÁR MEGINT???", 60);
-
-        //Create a new person object morzsa
+        Camp hpCamp = new Camp("Harry Potter tábor", "17-06-2021", "26-06-2021", "HARRY_POTTER", 43000, "Parádfürdő", "Roxfort varázslatos világa!", 60);
         List<Camp> camps=new ArrayList<Camp>();
-        camps.add(hp_ea);
+        camps.add(hpCamp);
 
-        Parent p = new Parent("Mommy", 1206, "Budapest", "Csorba u.", "1234567", "example@email.hu", "oficial de policía");
-        Person morzsa = new Person("Panni", Gender.FEMALE, "25-11-1999", Planet.NONE, 37, House.RAVENCLAW, Position.LEADER, 134, "Imadja a nutellat", "Szeretne a bagolypostahoz kerulni!!:)", camps, p);
-        
+        //Create a new person, parent object        
+        Parent mom = new Parent("Kovács Mária", 1234, "Budapest", "ABC u.", "1234567", "example@email.hu", "rendőr");
+        Person child = new Person("Nagy Sándor", Gender.MALE, "02-01-2010", Planet.HIFI, 3, House.HUFFLEPUFF, Position.CHILD, 134, "Mogyoró allergia", "Mosolygós, életvidám", camps, mom);
+        //List<Person> l = new ArrayList<Person>();
+        //l.add(child);
+
         //Saving new objects
-        campRepository.save(hp_ea);
-        parentRepository.save(p);
-        personRepository.save(morzsa);
+        parentRepository.save(mom);
+        personRepository.save(child);
+        campRepository.save(hpCamp);
         
         System.out.println("Person, Parent and Camp saved successfully!!");
     }

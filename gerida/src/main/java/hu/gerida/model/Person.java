@@ -65,8 +65,8 @@ public class Person {
     private String other;
 
     // CAMP-PERSON ENTITY
-    @ManyToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER)
-    @JoinTable
+    @ManyToMany(mappedBy = "campers")
+    @JsonIgnore
     private List<Camp> camps;
 
     // PARENT-PERSON ENTITY
@@ -82,7 +82,7 @@ public class Person {
 
     // new parent
      public Person(String name, Gender gender, String birthDate, Planet planet, int year, House house, Position pos,
-            int size, String foodSensitivity, String other, List<Camp> camps, /* parent*/  Parent parent) {
+            int size, String foodSensitivity, String other, List<Camp> camps,  /*parent*/  Parent parent) {
         super();
          try{
             DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
@@ -104,9 +104,10 @@ public class Person {
         this.other = other;
         this.parent = parent;
         parent.addChildren(this);
-        //this.camps = camps;
-        for (Camp camp : camps)
+        for (Camp camp : camps){
             this.camps.add(camp);
+            camp.addCamper(this);
+        }
     }
 
         //exists parent
