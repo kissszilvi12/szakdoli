@@ -17,6 +17,9 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     @Override
     public List<Person> findAll();
 
+    @Query("select p from Person p where id= :id")
+    public Person getChildById(int id);
+
     @Query("select p from Person p where name= :name")
     public List<Person> getChildListByName(String name);
 
@@ -31,8 +34,5 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
     @Query("select p from Person p where camp= :camp")
     public List<Parent> getParentEmailListByCamp(Camp camp);
-    
-    @Query("select p from Person p")
-    public Parent getParentBySibling(String siblingName, String siblingBirthDate);
     
 }

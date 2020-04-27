@@ -21,7 +21,7 @@ public interface CampRepository extends CrudRepository<Camp, Integer> {
     public List<Camp> getActiveCampList();
 
     @Query("select c from Camp c where from_date=:from")
-    public Optional<Camp> getCampByFrom(Date from);
+    public Camp getCampByFrom(String from);
 
     @Query("select c from Camp c where name=:name")
     public List<Camp> getCampByName(String name);
@@ -31,5 +31,8 @@ public interface CampRepository extends CrudRepository<Camp, Integer> {
 
     @Query("select c from Camp c where YEAR(from_date)=:y")
     public List<Camp> getCampByYear(int y);
+    
+    //@Query("select c from Camp c where YEAR(from_date)=:y")
+    //public List<Camp> getCampCampers(int y);
     
 }

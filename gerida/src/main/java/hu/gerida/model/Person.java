@@ -79,9 +79,7 @@ public class Person {
         super();
         this.camps = new ArrayList<Camp>();
     }
-
-    // new parent
-     public Person(String name, Gender gender, String birthDate, Planet planet, int year, House house, Position pos,
+    public Person(String name, Gender gender, String birthDate, Planet planet, int year, House house, Position pos,
             int size, String foodSensitivity, String other, List<Camp> camps,  /*parent*/  Parent parent) {
         super();
          try{
@@ -104,40 +102,8 @@ public class Person {
         this.other = other;
         this.parent = parent;
         parent.addChildren(this);
-        for (Camp camp : camps){
-            this.camps.add(camp);
-            camp.addCamper(this);
-        }
-    }
-
-        //exists parent
-    public Person(String name, Gender gender, String birthDate, Planet planet, int year, House house, Position pos, int size, String foodSensitivity,
-            String other, List<Camp> camps, /*sibling*/ String siblingName, String siblingBirthDate) {
-        super();
-        camps = new ArrayList<Camp>();
-        this.name = name;
-        this.gender = gender.toString();
-        try{
-            DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-          java.sql.Date date = new java.sql.Date(df.parse(birthDate).getTime());
-            this.birthDate = date;
-        }catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.rating = Rank.PLUTO.toString();
-        this.planet = planet.toString();
-        this.collegeYear = year;
-        this.house = house.toString();
-        this.pos = pos.toString();
-        this.size = size;
-        this.foodSensitivity = foodSensitivity;
-        this.other = other;
-
         for (Camp camp : camps)
-            this.camps.add(camp);
-        parent.addChildren(this);
-
-        //parent by sibling
+            addCamp(camp);
     }
 
     //GETTERS
@@ -159,6 +125,10 @@ public class Person {
 
     public String getRank() {
         return rating.toString();
+    }
+
+    public String getHouse() {
+        return house;
     }
 
     public int getYear() {

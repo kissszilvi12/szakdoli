@@ -10,7 +10,8 @@
         android:id="@+id/appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:background="#24631A">
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
@@ -37,5 +38,29 @@
                 android:text="@string/email" />
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#D6ECD2"
+        app:layout_constraintBottom_toTopOf="@+id/appbar"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.483" >
+
+        <ListView
+            android:id="@+id/simpleListView"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:clipToPadding="true"
+            android:divider="#0F2E08"
+            android:dividerHeight="1dp"
+            android:scrollbars="horizontal" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

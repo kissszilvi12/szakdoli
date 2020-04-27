@@ -50,6 +50,13 @@ public class PersonController
 	}
 
 	@CrossOrigin
+	@GetMapping("/camper/byId/{id}")
+	public Person getChildById(@PathVariable("id") int id){
+		Person person = personRepository.getChildById(id);
+		return person;
+	}
+
+	@CrossOrigin
 	@GetMapping("/camper/byPos/{position}")
 	public List<Person> getChildListByPosition(@PathVariable("position") String position){
 		List<Person> personList = new ArrayList<>();

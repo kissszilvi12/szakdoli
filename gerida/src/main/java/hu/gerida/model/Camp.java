@@ -17,8 +17,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name="Camp")
 
@@ -63,17 +61,14 @@ public class Camp{
     public Camp(final String name, final String from, final String till, final String theme, final int price, final String place, final String description, final int max/*, List<Person> campers*/) {
         try{
             final DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-            final java.sql.Date fromToDate = new java.sql.Date(df.parse(from).getTime());
-            final java.sql.Date tillToDate = new java.sql.Date(df.parse(till).getTime());
+            final Date fromToDate = new Date(df.parse(from).getTime());
+            final Date tillToDate = new Date(df.parse(till).getTime());
             this.fromDate = fromToDate;
             this.tillDate = tillToDate;
         }catch(final ParseException e){
             e.printStackTrace();
         }
         this.campers=new ArrayList<>();
- //       for (Person person : campers) {
- //           this.campers.add(person);
- //       }
 
         this.name = name;
         this.theme = theme;

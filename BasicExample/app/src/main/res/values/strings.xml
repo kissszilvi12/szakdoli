@@ -4,4 +4,10 @@
     <string name="gyerekek">Gyerekek</string>
     <string name="taborok">Táborok</string>
     <string name="email_kuldes">Email küldés</string>
+    <string name="szulo_adatai">Szülő adatai:</string>
+    <string name="egyeb_tudnivalok">Egyéb tudnivalók</string>
+    <string name="evfolyam">Évfolyam:</string>
+    <string name="helyszin">Helyszín:</string>
+    <string name="ar">Ár:</string>
+    <string name="taborozok">Táborozók:</string>
 </resources>

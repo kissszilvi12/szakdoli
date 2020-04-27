@@ -38,7 +38,7 @@ public class Parent {
     @Column
     private String job;
 
-	@OneToMany(mappedBy = "parent")
+	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
 	@JsonIgnore
     private List<Person> children;
 

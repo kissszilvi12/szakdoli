@@ -1,5 +1,8 @@
 package hu.gerida.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +47,15 @@ public class CampController {
 	}
 
 	@CrossOrigin
+	@GetMapping("/camp/{from}")
+	public Camp getCampByFrom(@PathVariable("from") String from) throws ParseException{
+		final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		final java.sql.Date fromToDate = new java.sql.Date(df.parse(from).getTime());
+		Camp camp = campRepository.getCampByFrom(from);
+		return camp;
+	}
+
+	@CrossOrigin
 	@GetMapping("/campByName/{name}")
 	public List<Camp> getCampByName(@PathVariable("name") String name){
 		List<Camp> campList = new ArrayList<>();
@@ -76,12 +88,12 @@ public class CampController {
 		return campList;
 	}
 	
-	@CrossOrigin
+/*	@CrossOrigin
 	@PostMapping("/addcamp")
 	public <Optional>Camp createCamper(@RequestBody Camp camp){
         campRepository.save(camp);
-        return campRepository.getCampByFrom(camp.getFrom()).get();
-	}
+        return campRepository.getCampByFrom(camp.getFrom());
+	}*/
     
     @CrossOrigin
 	@DeleteMapping("/camp/{id}")
