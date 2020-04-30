@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmailActivity"
+    android:background="@drawable/copybook">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#123495"
+        tools:ignore="MissingConstraints">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="scrollable">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/child_tab"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/gyerekek" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/camp_tab"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/taborok" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/email_tab"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/email" />
+        </android.support.design.widget.TabLayout>
+    </android.support.design.widget.AppBarLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:stretchColumns="*"
+            app:layout_constraintBottom_toTopOf="@+id/appbar"
+            tools:ignore="MissingConstraints">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/to"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/to"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="parent"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner_to"
+                    android:layout_span="2"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="parent"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/template"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/sablon"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="parent"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner_template"
+                    android:layout_span="2"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="parent"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tag"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/mezo"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="parent"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner_tag"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="parent"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hozzaad" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/subjectEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_span="3"
+                    android:autofillHints=""
+                    android:baselineAligned="false"
+                    android:ems="10"
+                    android:hint="@string/targy"
+                    android:inputType="textPersonName" />
+
+            </TableRow>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:layout_weight="1"
+                tools:ignore="MissingConstraints">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/contentEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:textColor="#000000"
+                    android:layout_span="3"
+                    android:alpha="0.7"
+                    android:autofillHints=""
+                    android:background="#ffffff"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="@string/leveliras"
+                    android:inputType="textMultiLine"
+                    android:minLines="12" />
+            </TableRow>
+
+        </ScrollView>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom">
+
+                <Button
+                    android:id="@+id/sendButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_span="3"
+                    android:alpha="0.7"
+                    android:ems="10"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="@string/kuldes" />
+            </TableRow>
+        </TableLayout>
+</android.support.constraint.ConstraintLayout>

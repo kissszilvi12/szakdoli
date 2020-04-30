@@ -42,30 +42,28 @@ public class ChildActivity extends AppCompatActivity {
                     tv.setTextColor(Color.rgb(63, 64, 60));
             }
         }
-
-        //Set background color by house
-        ConstraintLayout cl = findViewById(R.id.constraintLayout);
+        TextView house = findViewById(R.id.house);
         switch(o.get("house")){
             case "SLYTHERIN":
-                cl.setBackgroundResource(R.drawable.slytherin);
+                house.setText("Mardekár");
                 break;
             case "HUFFLEPUFF":
-                cl.setBackgroundResource(R.drawable.hufflepuff);
+                house.setText("Hugrabug");
                 break;
             case "RAVENCLAW":
-                cl.setBackgroundResource(R.drawable.ravenclaw);
+                house.setText("Hollóhát");
                 break;
             case "GRYFFINDOR":
-                cl.setBackgroundResource(R.drawable.gryffindor);
+                house.setText("Griffendél");
                 break;
             default:
-                cl.setBackgroundColor(Color.rgb(214, 212, 201));
+                house.setText("Nincs beosztva");
         }
 
         for(String k : o.keySet()){
             resID = getResources().getIdentifier(k, "id", getPackageName());
             tv = findViewById(resID);
-            if(tv != null) {
+            if(tv != null && !k.equals("house")) {
                 tv.setText(o.get(k));
                 tv.getLayoutParams().height = Integer.parseInt("150");
             }

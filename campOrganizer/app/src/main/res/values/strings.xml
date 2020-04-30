@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">Tábor szervező alkalmazás</string>
+    <string name="email">Email</string>
+    <string name="gyerekek">Gyerekek</string>
+    <string name="taborok">Táborok</string>
+    <string name="email_kuldes">Email küldés</string>
+    <string name="szulo_adatai">Szülő adatai:</string>
+    <string name="egyeb_tudnivalok">Egyéb tudnivalók</string>
+    <string name="evfolyam">Évfolyam:</string>
+    <string name="helyszin">Helyszín:</string>
+    <string name="ar">Ár:</string>
+    <string name="taborozok">Táborozók:</string>
+    <string name="sign">-</string>
+    <string name="to">Címzett</string>
+    <string name="sablon">Sablon</string>
+    <string name="mezo">Mező</string>
+    <string name="hozzaad">Hozzáad</string>
+    <string name="targy">Tárgy</string>
+    <string name="leveliras">Levélírás</string>
+    <string name="kuldes">Küldés</string>
+    <string name="haz">Ház</string>
+    <string name ="tajekoztato">"Kedves {név}!"
+                        "\n"
+                        "Örömmel köszöntöm Önt és gyermekét  a GERIDA Lovagrend nevében! Mivel először jelentkezett hozzánk táborba engedje meg, hogy pár szóban tájékoztassam a nálunk évek óta bevált szokásokról.\n" +
+                        "\n"
+                        "A GERIDA Lovagrend a Rendőr Kulturális és Hagyományőrző Egyesület keretei között működő ifjúsági szervezet, amelynek jelenleg kb. 300 gyermek és 44 felnőtt tagja van. Célunk, hogy a hozzánk bármilyen úton jelentkező gyerekeknek egy igazi közösséghez való tartozás lehetőségét kínáljuk és nyújtsuk, ezért az utóbbi években nem csak a nyári táborokban, hanem év közbeni rendezvényeken is igyekszünk nekik, (illetve bizonyos esetekbe kedves családjuknak) programot kínálni. Ezen programok leszervezéséhez természetesen szükség van a megfelelő kommunikációra, amelynek kiváló, és az elmúlt években nagyon jól bevált eszköze az internet – ezen belül elsősorban a facebook közösségi portál, ahol a Gerida Lovagrendnek külön oldalai vannak:\n" +
+                        "\n"
+                        "\t• Hedvig Imre Ibolya  (Gerida Lovagrend)  \n" +
+                        "\t• https://www.facebook.com/GeridaLovagrend/\n" +
+                        "\n"
+                        "Kérem Önöket, ha egy mód van rá csatlakozzanak ezekhez az oldalakhoz, ahol nem csak ez elkövetkező rendezvényekről, de az elmúlt évek sok-sok programjáról is kaphatnak információkat, képes beszámolókat. \n" +
+                        "\n"
+                        "Mától kezdve – mivel gyermeke GEIRIDA „újoncnak” számít – Önök is kapnak tőlünk mindenféle tájékoztató leveleket a „GERIDÁKAT” érintő aktuális témákban. Remélem, nem veszik ezt zaklatásnak, hiszen a jó szándék vezérel bennünket. (amennyiben mégis zavarók, akkor kérem ezt jelezzék, és természetesen nem küldünk több hasonló levelet)\n" +
+                        "\n"
+                        "Remélem az általunk nyújtotta lehetőségek elnyerik majd  és ezáltal a tetszését. Bármilyen kérdéséhez készségesen állok rendelkezésre!\n" +
+                        "\n"
+                        "Kérem, - mivel ez az első kapcsolatfelvétel – jelezzék vissza, hogy megérkezett- e ez az e-mail!"</string>
+    <string name="tudnivalok">"Kedves {név}!\n"
+                        "\n"
+                        "A {tábor kezdet}-{tábor vége} között megrendezésre kerülő {tábor cím} c. Gerida gyermektáborunkkal kapcsolatban előzetesen a következőkről tájékoztatom Önöket.\n"
+                        "\n"
+                        "Gyülekező:\t{tábor kezdet} 08.30 - 09.00-ig\n"
+                        "ORFK Rendészeti Szervek Kiképző Központ előtti parkolóból. (1097 Budapest, Vágóhíd u. 11-13.) \n"
+                        "\t• Figyelem a gyerekeket kettő busz fogja szállítani, úgyhogy minden gyermek felfér rájuk!\n"
+                        "\t• Kérem az autóval érkezőket, hogy úgy próbáljanak parkolni, hogy az esetlegesen később érkező busz úgy tudjon odaállni, hogy a gyerekek felszállása, illetve a csomagok bepakolása minél zökkenőmentesebben, biztonságosabban történhessen! \n"
+                        "\t• A helyszínen egy tűzoltó bázis is van, ezért kérem az autóval érkezőket, hogy a tűzoltó kapuk bejáratát is hagyják szabadon!\n"
+                        " \n"
+                        "Busz indulása:\t09.00 órakor (ha addigra a vidéken lakó gyermekek is megérkeznek! \n"
+                        "\t• Itt kérem azokat, akik esetleg előre tudják, hogy nem érnek ide 09.00 óráig azok feltétlenül jelezzék ezt nekünk minél előbb, illetve \n"
+                        "\t• azok is jelezzék, akik Parádra, a tábor helyszínére hozzák a gyermeküket, hogy ne várjuk őket feleslegesen!\n"
+                        "\n"
+                        "Hazaérkezés:\t{tábor vége} 13.00 - 14.30 között ORFK Rendészeti Szervek Kiképző Központ előtti parkolóhoz. (1097 Budapest, Vágóhíd u. 11-13.) \n"
+                        "\n"
+                        "A tábor helyszíne:\tZöldövezet Vendégház (Parádfürdő, Kristály út 91.)"
+                        "\n"
+                        "A gyermekek már az első nap ebédet kapnak, ezért kérjük, hogy számukra élelmiszert csak annyit csomagoljanak, amennyit megérkezésig el tudnak fogyasztani, különben az esetlegesen a csomagban felejtett élelmiszerre megindulnak a bogarak, hangyák és az senkinek sem kellemes. Ugyanez vonatkozik a különböző kekszekre, vagy egyéb nasikra is. \n"
+                        "\n"
+                        "Étkezés:\tNapi négyszer (reggeli, ebéd, vacsora, és „pótvacsi”) a tábor étkezdéjében.\n"
+                        "Elhelyezés: \tParádfürdő – Zöldövezet Vendégház, 6-8 és 10 ágyas szobákban  \n"
+                        "\n"
+                        "A táborba tilos hozni: szúró- vágó eszközt, petárdát, alkoholt, cigarettát, drogot. Felsoroltak tartása, használata – a többi gyermek érdekében –, azonnali hazaszállítást von maga után!   \n"
+                        "\n"
+                        "Kérjük, hogy a gyermekek értékesebb ékszert, órát, műszaki cikket ne hozzanak magukkal! Az esetlegesen általuk elhagyott értékekért nem tudunk felelősséget vállalni!\n"
+                        "\n"
+                        "Kérem, hogy a gyermekek MOBIL TELEFONT NE hozzanak magukkal!!!!\n"
+                        "A tábor időtartama alatt vezetőink és ifivezetőink folyamatosan a gyermekek között vannak, és mindent megtesznek a felmerülő problémák megoldása érdekében. Ugyanakkor nagyon nehéz a „honvágy” és az „Anyahiány” típusú problémákat úgy kezelni, hogyha abban a pillanatban amikor az erre hajlamos gyermek – aki egyébként szemmel láthatóan jól érzi magát és részt vesz a programokban – egy percre magára maradva, azonnal telefonon hívja Önöket, holott, ha nekünk szólna akkor bármilyen problémáját meg tudnánk oldani. Táboraink történelmi, illetve fantasy szerepjáték táborok, ahol a programok idején egyébként sem korhű a telefon használata, ugyanakkor a tábor előtt meg fogjuk Önöknek adni a gyermekre közvetlenül vigyázó vezetők mobil telefonszámait, és ezeken keresztül elérhetik gyermekeiket amikor ez szükséges. Természetesen, ha olyan jellegű gond merülne fel, mi soron kívül jelentkezni fogunk. Kérem – és előre is köszönöm - ez irányú együttműködésüket és megértésüket, és azt is ha gyermekükkel otthon megbeszélik azt, hogy most egy olyan helyre jönnek, ahol a fentiek miatt a telefon nem szükséges, és ki lehet bírni 10 napot telefon nélkül is! \n"
+                        "\n
+                        "A táborok jellegzetességéből adódóan – az egyéb gyermektáborokhoz képest – rengeteg plusz kiadással kell számolnunk (jelmezek, díszletek, korhű eszközök, Gerida kellékek stb.) amely költségeket természetesen nem szeretnénk Önökre hárítani. Nagy segítséget jelentene viszont, ha táborunkra felhívnák ismerősi körükben található vállalkozások, cégek figyelmét, akik esetleg látnak benne annyi fantáziát, hogy valamilyen formában – nem feltétlenül pénzbeli támogatásra gondolunk, hanem pl. gyümölcs, csokoládé, üdítő, ásványvíz, kisebb nagyobb játékok stb. - támogassanak bennünket annak érdekében, hogy minél színvonalasabb programot tudjunk biztosítani a gyermekek részére. A táborokra felajánlott támogatásokról – a táborunkat szervező közhasznú Rendőr Kulturális és Hagyományőrző Egyesület – igazolást tud adni, amelynek köszönhetően ez a támogatási érték – legyen az pénzbeli vagy tárgyi természetű – az adóalapból leírható lesz.\n"
+                        "\n"
+                        "Jelen levelem egy előzetes tájékoztatás, azért, hogy a Kedves Szülők, a táborral kapcsolatos legfontosabb dolgokról minél előbb tájékoztatva legyenek. Innentől kezdve a táborig több olyan levelet is fogunk küldeni, ami a táborral kapcsolatos részfeladatokról értesítjük majd Önöket, és amikre több estetben válaszokat is várunk, kérem figyeljék majd ezeket a leveleket! Kérem ugyanakkor, hogyha a fentieken kívül bármi kérdés merül fel a Gerida Lovagrenddel vagy a táborral kapcsolatban hívjanak bizalommal!\n"
+    </string>
+
+    <string name="plusz_informacio">"Kedves {név}!\n"
+                        "\n"
+                        "A Gerida táborokban nagy hangsúlyt fordítunk a tartalmas programokra és arra, hogy minden gyermek gyermekek lehetőség szerint megtalálja a számára legérdekesebb, legszórakoztatóbb játékot, elfoglaltságot. Tudjuk ugyanakkor azt is hogy egy-egy újonnan jövő gyermeknek nem egyszerű a beilleszkedés egy számára ismeretlen és nagyrészt idegen környezetbe, ahol sokszor senkit, vagy jobb esetben egy-két gyermeket ismer magán kívül. A gyermekekkel közvetlenül foglalkozó vezetők mindent elkövetnek, hogy ez a beilleszkedés minél könnyebb, zökkenő mentesebb legyen, de nagyon nagy segítség lenne az ez irányú munkánkban, ha egy pár gondolatban röviden bemutatnák nekünk gyermeküket. Elsősorban a következő szempontok lennének fontosak:\n"
+                        "\t• Beilleszkedési tulajdonságok (pl. csendes visszahúzó, vagy könnyen barátkozik stb.)\n"
+                        "\t• Fontos lenne azt is tudnunk, hogy szakértői véleménnyel rendelkezik-e (BTM, SNI, stb.)\n"
+                        "\n"
+                        "Kérem ezen bemutatókat minél előbb legyenek szívesek elküldeninekünk!\n"</string>
+
+    <string name="alairas">"\n"
+                        "Tisztelettel: \n"
+                        "\n"
+                        "\t\tMikó László\n"
+                        "\t\ttáborvezető\n"
+                        "\t\t60-20-9523 221\n\n"</string>
+</resources>

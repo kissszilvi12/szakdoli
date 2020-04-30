@@ -108,7 +108,6 @@ public class Camp{
         final List<Person> result = new ArrayList<>();
         for (final Person person : campers){
             result.add(person);
-            System.out.println("Added");
         }
         return campers;
     }

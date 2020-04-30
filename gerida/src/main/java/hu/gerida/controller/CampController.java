@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import hu.gerida.model.Camp;
@@ -49,8 +47,6 @@ public class CampController {
 	@CrossOrigin
 	@GetMapping("/camp/{from}")
 	public Camp getCampByFrom(@PathVariable("from") String from) throws ParseException{
-		final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		final java.sql.Date fromToDate = new java.sql.Date(df.parse(from).getTime());
 		Camp camp = campRepository.getCampByFrom(from);
 		return camp;
 	}

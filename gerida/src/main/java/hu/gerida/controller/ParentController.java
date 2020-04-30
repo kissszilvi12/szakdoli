@@ -1,8 +1,10 @@
 package hu.gerida.controller;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,13 +39,13 @@ public class ParentController
 
 		return parentList;
 	}
-        
-    /*
-	@DeleteMapping("/student/{id}")
-	public List<Student> deletePassport(@PathVariable("id") int id)
-	{
-		studentRepository.deleteById(id);
 
-		return getAllStudents();
-	}*/
+        
+	@DeleteMapping("/parent/{id}")
+	public List<Parent> deletePassport(@PathVariable("id") int id)
+	{
+		parentRepository.deleteById(id);
+
+		return getAllParents();
+	}
 }
