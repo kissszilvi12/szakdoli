@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import hu.gerida.model.Camp;
-import hu.gerida.model.Parent;
 import hu.gerida.model.Person;
 
 import org.springframework.data.jpa.repository.Query;
@@ -30,9 +28,5 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     public List<Person> getChildListByHouse(String house);
 
     @Query("select p from Person p where planet= :planet")
-    public List<Person> getChildListByPlanet(String planet);
-
-    @Query("select p from Person p where camp= :camp")
-    public List<Parent> getParentEmailListByCamp(Camp camp);
-    
+    public List<Person> getChildListByPlanet(String planet);    
 }

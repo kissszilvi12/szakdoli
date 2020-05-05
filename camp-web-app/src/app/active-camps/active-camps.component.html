@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="card" style="width: 18rem;" *ngFor="let camp of camps">
+        <div class="card-body">
+        <h5 class="card-title">{{ camp.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{camp.from}}<b> - </b>{{camp.till}}</h6>
+        <p class="card-text">{{ camp.description }}</p>
+        <p class="card-text">Helyszín: {{ camp.place }}</p>
+            <p class="card-text">Ár: {{ camp.price }}</p>
+        <a  routerLink="/jelentkezes" class="btn btn-primary">Jelentkezés</a>
+        </div>
+    </div>
+</div>

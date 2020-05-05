@@ -60,7 +60,7 @@ public class Camp{
 
     public Camp(final String name, final String from, final String till, final String theme, final int price, final String place, final String description, final int max/*, List<Person> campers*/) {
         try{
-            final DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+            final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             final Date fromToDate = new Date(df.parse(from).getTime());
             final Date tillToDate = new Date(df.parse(till).getTime());
             this.fromDate = fromToDate;
@@ -131,7 +131,7 @@ public class Camp{
 
     public void setFrom(final String from) {
         try{
-            final DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+            final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             final java.sql.Date fromToDate = new java.sql.Date(df.parse(from).getTime());
             this.fromDate = fromToDate;
         }catch (final ParseException e) {
@@ -141,7 +141,7 @@ public class Camp{
 
     public void setTill(final String till) {
         try{
-            final DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+            final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             final java.sql.Date tillToDate = new java.sql.Date(df.parse(till).getTime());
             this.tillDate = tillToDate;
         }catch (final ParseException e) {
@@ -176,6 +176,9 @@ public class Camp{
     //OTHER FUNCTIONS
     public void addCamper(final Person camper) {
         this.campers.add(camper);
+        if(campers.size()==max && isActive==false){
+            setIsActive();
+        }
     }
 
     public void removeCamper(final Person camper) {

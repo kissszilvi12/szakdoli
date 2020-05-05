@@ -113,10 +113,10 @@ public class CampActivity extends AppCompatActivity {
         ConstraintLayout cl = findViewById(R.id.constraintLayout);
         switch(campData.get("theme")){
             case "HARRY_POTTER":
-                cl.setBackgroundResource(R.drawable.hp);
+
                 break;
             case "OTHER":
-                cl.setBackgroundResource(R.drawable.other);
+
                 break;
         }
     }

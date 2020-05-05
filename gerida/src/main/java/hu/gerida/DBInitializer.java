@@ -51,33 +51,33 @@ public class DBInitializer implements ApplicationListener<ApplicationReadyEvent>
 
         //Create a new parent, leader person object
         Parent momL = new Parent("Nagy Éva", 1234, "Budapest", "ABC u.", "0670/1234567", "example@email.hu", "fogorvos");
-        Person leader = new Person("Tábor Gábor", Gender.MALE, "02-01-2010", Planet.NONE, 3, House.RAVENCLAW, Position.LEADER, 134, "Mogyoró allergia", "Mosolygós, életvidám", camphp, momL);
+        //Person leader = new Person("Tábor Gábor", Gender.MALE, "02-01-2010", Planet.NONE, 3, House.RAVENCLAW, Position.LEADER, 134, "Mogyoró allergia", "Mosolygós, életvidám", camphp, momL);
         //Saving new objects
         //parentRepository.save(momL);
 
         //Create a new person, parent object   
         Parent mom1 = new Parent("Kiss Anna", 1234, "Budapest", "ABC u.", "0630/1234566", "example@email.hu", "rendőr");
-        Person child1 = new Person("Kovács Alexandra", Gender.FEMALE, "02-01-2010", Planet.ZOLGS, 3, House.RAVENCLAW, Position.CHILD, 134, "", "Eleinte kicsit zárkózott", camps, mom1);
+        //Person child1 = new Person("Kovács Alexandra", Gender.FEMALE, "02-01-2010", Planet.ZOLGS, 3, House.RAVENCLAW, Position.CHILD, 134, "", "Eleinte kicsit zárkózott", camps, mom1);
         //Saving new objects
         //parentRepository.save(mom1);
 
         //Create a new person, parent object
-        Person child2 = new Person("Kénes Krisztián", Gender.MALE, "02-01-2010", Planet.HIFI, 3, House.HUFFLEPUFF, Position.CHILD, 134, "Vegetáriánus", "Szeret olvasni", campegypt, momL);
+        //Person child2 = new Person("Kénes Krisztián", Gender.MALE, "02-01-2010", Planet.HIFI, 3, House.HUFFLEPUFF, Position.CHILD, 134, "Vegetáriánus", "Szeret olvasni", campegypt, momL);
 
         //Create a new person, parent object   
         Parent mom3 = new Parent("Horvát Julianna", 1234, "Budapest", "ABC u.", "0620/512543", "example@email.hu", "bankár");
-        Person child3 = new Person("Földi Anna", Gender.FEMALE, "02-01-2010", Planet.ASTROCOMIC, 3, House.SLYTHERIN, Position.CHILD, 134, "", "Könnyen barátkozik", camphp, mom3);
+        //Person child3 = new Person("Földi Anna", Gender.FEMALE, "02-01-2010", Planet.ASTROCOMIC, 3, House.SLYTHERIN, Position.CHILD, 134, "", "Könnyen barátkozik", camphp, mom3);
         //Saving new objects
         //parentRepository.save(mom3);
 
         //Create a new person, parent object   
         Parent mom4 = new Parent("Sándor Krisztina", 1234, "Budapest", "ABC u.", "0620/7654321", "example@email.hu", "mérnök");
-        Person child4 = new Person("Kovács Béla", Gender.MALE, "02-01-2010", Planet.TOBIMUG, 3, House.GRYFFINDOR, Position.CHILD, 134, "", "Szeret sportolni", camps, mom4);
+        //Person child4 = new Person("Kovács Béla", Gender.MALE, "02-01-2010", Planet.TOBIMUG, 3, House.GRYFFINDOR, Position.CHILD, 134, "", "Szeret sportolni", camps, mom4);
         //Saving new objects
         //parentRepository.save(mom4);
 
         //Create a new person, parent object
-        Person child5 = new Person("Földi Balázs", Gender.MALE, "02-01-2010", Planet.NONE, 3, House.SLYTHERIN, Position.CHILD, 134, "Laktóz érzékeny", "Szereti az egyiptomi meséket", campegypt, mom4);
+       // Person child5 = new Person("Földi Balázs", Gender.MALE, "02-01-2010", Planet.NONE, 3, House.SLYTHERIN, Position.CHILD, 134, "Laktóz érzékeny", "Szereti az egyiptomi meséket", campegypt, mom4);
         
         //Saving new object
         //campRepository.save(egyptCamp);

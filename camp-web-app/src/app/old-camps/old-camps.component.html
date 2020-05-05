@@ -1,0 +1,15 @@
+<app-active-camps></app-active-camps>
+
+
+<span class="d-block p-2 bg-dark text-white">Eddigi táborok</span>
+<div class="row">
+    <div class="year" *ngFor="let camp of camps">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ camp.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{camp.from}}<b> - </b>{{camp.till}}</h6>
+          <p class="card-text">{{ camp.description }}</p>
+        </div>
+      </div>
+    </div>
+</div>

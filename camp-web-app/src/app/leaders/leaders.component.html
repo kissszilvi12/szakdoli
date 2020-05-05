@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem;" *ngFor="let leader of leaders">
+  <div class="card-body">
+    <h5 class="card-title">{{leader.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{leader.pos}}</h6>
+    <p class="card-text">
+      <b>Életkor: </b>{{leader.birthDate}}<br>
+      <b>Bolygó: </b>{{leader.planet}}<br>
+      <b>Ház: </b>{{leader.house}}
+  </p>
+  </div>
+</div>

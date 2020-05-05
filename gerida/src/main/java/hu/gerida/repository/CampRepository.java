@@ -1,8 +1,6 @@
 package hu.gerida.repository;
 
-import java.sql.Date;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +18,9 @@ public interface CampRepository extends CrudRepository<Camp, Integer> {
     @Query("select c from Camp c where is_active=1")
     public List<Camp> getActiveCampList();
 
+    @Query("select c from Camp c where is_active=0")
+    public List<Camp> getInactiveCampList();
+
     @Query("select c from Camp c where from_date=:from")
     public Camp getCampByFrom(String from);
 
@@ -31,8 +32,8 @@ public interface CampRepository extends CrudRepository<Camp, Integer> {
 
     @Query("select c from Camp c where YEAR(from_date)=:y")
     public List<Camp> getCampByYear(int y);
-    
-    //@Query("select c from Camp c where YEAR(from_date)=:y")
-    //public List<Camp> getCampCampers(int y);
+
+    @Query("select YEAR(from_date) from Camp c")
+    public List<Integer> getCampYears();   
     
 }

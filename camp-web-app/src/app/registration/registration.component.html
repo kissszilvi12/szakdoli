@@ -1,0 +1,122 @@
+<form #personForm="ngForm" class = "form" (ngSubmit)="onSubmit()">
+    <div class="form-group" style="text-align: center; margin: 2%;">
+        <label><h1>Jelentkezési lap</h1></label>
+    </div>
+<!--camps-->
+<div class="shadow p-3 mb-5 bg-white rounded">
+    <div class="form-group">
+        <label><h3>Táborok</h3></label>
+      </div>
+    <div class="form-check" *ngFor="let camp of camps">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name={{camp.from}} [(ngModel)]="person.camps" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="defaultCheck1">
+            {{camp.name}} ({{camp.from}})
+        </label>
+    </div>
+</div>
+<div class="shadow p-3 mb-5 bg-white rounded">
+    <div class="form-group">
+        <label><h3>Szülő adatai</h3></label>
+    </div>
+    <!--name-->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Szülő neve</label>
+      <input class="form-control" id="name" [(ngModel)]="parent.name" name="parentName">
+    </div>
+    <!--Address-->
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="inputZip">Irányító szám</label>
+            <input type="text" class="form-control" id="inputZip" [(ngModel)]="parent.postCode" name="postCode">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputCity">Város</label>
+            <input type="text" class="form-control" id="inputCity" [(ngModel)]="parent.country" name="country">
+        </div>
+        <div class="form-group col-md-6">
+        <label for="inputCity">Utca</label>
+        <input type="text" class="form-control" id="inputState" [(ngModel)]="parent.street" name="street">
+        </div>
+    </div>
+    <!--phone-->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Telefonszám</label>
+      <input class="form-control" id="phone" [(ngModel)]="parent.phone" name="phone">
+    </div>
+    <!--email-->
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="FormControlInput1" placeholder="name@example.com"  [(ngModel)]="parent.email" name="email">
+      </div>
+      <!--job-->
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Munkahely</label>
+        <input class="form-control" id="job" [(ngModel)]="parent.job" name="job">
+      </div>
+</div>
+<!--CHILD-->
+<div class="shadow p-3 mb-5 bg-white rounded">
+    <div class="form-group">
+        <label><h3>Gyerek adatai</h3></label>
+      </div>
+    <!--name-->
+    <div class="form-group">
+        <label for="FormControlInput1">Gyerek neve</label>
+        <input class="form-control" id="name"  [(ngModel)]="person.name" name="name">
+    </div>
+    <div class="form-row" style="margin-left: 1%;margin-right: 1%;margin-bottom: 2%;margin-top: 2%;">
+        <label style="margin-right: 5%;">Nem:</label>
+        <div class="form-check" style="margin-right: 5%;"  [(ngModel)]="person.gender" [ngModelOptions]="{standalone: true}">
+            <input class="form-check-input" type="radio" name="Radios" id="boy" value="boy">
+            <label class="form-check-label" for="Radios">Fiú</label>      
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="Radios" id="girl" value="girl">
+            <label class="form-check-label" for="Radios">Lány</label>
+        </div>
+    </div>
+    <div class="form-group" style="margin-right: 1%;">
+        <label for="birthday" style="margin-right: 1%;">Születési idő:</label>
+        <input type="date" id="birthday" [(ngModel)]="person.birthDate"  ngDefaultControl="date" name="birthDate">
+    </div>-
+    <!--size-->
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Póló méret</label>
+      <select class="form-control" id="size" [(ngModel)]="person.size" name="size" ngDefaultControl>
+        <option value=104>104</option>
+        <option value=104>110</option>
+        <option value=116>116</option>
+        <option value=122>122</option>
+        <option value=128>128</option>
+        <option value=134>134</option>
+        <option value=140>140</option>
+        <option value=146>146</option>
+        <option value=152>152</option>
+        <option value=158>158</option>
+        <option value=164>164</option>
+      </select>
+    </div>
+    <!--food sensitivity-->
+    <div class="form-group">
+      <label for="FormControlTextarea1">Ételérzékenység</label>
+      <textarea class="form-control" id="foodSensitivity" rows="2" [(ngModel)]="person.foodSensitivity" name="foodSensitivity"></textarea>
+    </div>
+    <!--other-->
+    <div class="form-group">
+        <label for="FormControlTextarea1">Egyéb tudnivaló</label>
+        <textarea class="form-control" id="other" [(ngModel)]="person.other" name="other" rows="3"></textarea>
+    </div>
+</div>
+<div class="shadow p-3 mb-5 bg-white rounded">
+    <!--Nyilatkozatok elfogadása-->
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+            Elfogadom az adatkezelési nyilatkozatot
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-bottom: 1%" [disabled]="!personForm.form.valid" >Küldés</button>
+</div>
+  </form>

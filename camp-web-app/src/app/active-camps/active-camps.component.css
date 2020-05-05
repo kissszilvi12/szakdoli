@@ -1,0 +1,10 @@
+.card{
+    margin: 2%
+}
+.card-title, .card-subtitle{
+    text-align: center;
+}
+.row{
+    width:75%;
+    margin: auto;
+}

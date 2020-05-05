@@ -5,6 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/camp_bg"
     tools:context=".CampActivity">
     <TableLayout
         android:layout_width="match_parent"
@@ -153,11 +154,12 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="true"
                 android:divider="#0F2E08"
+                android:background="#ffffff"
+                android:alpha="0.7"
                 android:layout_span="3"
                 android:dividerHeight="1dp"
                 android:scrollbars="horizontal" />
         </TableRow>
 
     </TableLayout>
-    <!--</ScrollView>-->
 </android.support.constraint.ConstraintLayout>

@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import hu.gerida.model.Camp;
-import hu.gerida.model.Parent;
 import hu.gerida.model.Person;
 
 import hu.gerida.repository.PersonRepository;
@@ -25,7 +23,7 @@ public class PersonController
 	public PersonRepository personRepository;
 
 	@CrossOrigin
-	@GetMapping("/")
+	@GetMapping("/campers")
 	public List<Person> getAllChildren(){
 		List<Person> personList = new ArrayList<>();
 		Iterable<Person> person = personRepository.findAll();
@@ -88,29 +86,10 @@ public class PersonController
 		}
 		return personList;
 	}
-
-	@CrossOrigin
-	@GetMapping("/parent/emails/{camp}")
-	public List<Parent> getParentEmailListByCamp(Camp camp){
-		List<Parent> personList = new ArrayList<>();
-		Iterable<Parent> person = personRepository.getParentEmailListByCamp(camp);
-		for (Parent p : person){
-			personList.add(p);
-		}
-		return personList;
-	}
 	
 	@CrossOrigin
 	@PostMapping("/addcamper")
 	public <Optional>Person createCamper(@RequestBody Person person){
-        personRepository.save(person);
-        return personRepository.findById(person.getId()).get();
-	}
-
-	@CrossOrigin
-	@PostMapping("/addSiblingCamper")
-	public <Optional>Person createCamperBySibling(@RequestBody Person person){
-
         personRepository.save(person);
         return personRepository.findById(person.getId()).get();
 	}

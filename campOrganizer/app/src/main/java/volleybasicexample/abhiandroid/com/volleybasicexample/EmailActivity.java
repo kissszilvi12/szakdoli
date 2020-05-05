@@ -36,7 +36,8 @@ public class EmailActivity extends AppCompatActivity {
     Spinner dropdown_to;
     Spinner dropdown_template;
     Spinner dropdown_tag;
-    List<String> camps;
+    List<String> activeCampNames;
+    List<String> activeCampIds;
     ArrayAdapter<String> adapter;
     EditText contentEditText;
     EditText subjectEditText;
@@ -49,6 +50,7 @@ public class EmailActivity extends AppCompatActivity {
 
         contentEditText = findViewById(R.id.contentEditText);
         subjectEditText = findViewById(R.id.subjectEditText);
+        activeCampIds = new ArrayList<>();
         sent = false;
 
         //Tablayout
@@ -79,38 +81,36 @@ public class EmailActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+
         fillToDropDown();
         fillTemplateDropDown();
         fillTagsDropDown();
 
+        //Set send email button
         Button send = findViewById(R.id.sendButton);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 makePostRequest();
-                while(sent==false){}
                 Toast.makeText(getApplicationContext(), "Elküldve", Toast.LENGTH_LONG).show();
-                selectTemplate("");
             }
         });
-
     }
-
 
     public void fillToDropDown(){
         //fill To dropdown
-        camps=new ArrayList<>();
-        camps.add("Összes szülő");
-        camps.add("Első táborosok");
+        activeCampNames =new ArrayList<>();
+        activeCampNames.add("Összes szülő");
+        activeCampNames.add("Első táborosok");
 
         dropdown_to = findViewById(R.id.spinner_to);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, camps);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, activeCampNames);
         dropdown_to.setAdapter(adapter);
         makeGetRequest();
     }
 
     public void fillTemplateDropDown(){
-        final String[] templates=new String[]{"Egyéni", "Tájékoztatás táborról", "Fontos tudnivalók", "Információ kérés gyerekről"};
+        final String[] templates=new String[]{"Egyéni", "Tájékoztatás első táborosoknak", "Táborral kapcsolatos tudnivalók", "Információ kérés gyerekről"};
 
         dropdown_template = findViewById(R.id.spinner_template);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, templates);
@@ -128,7 +128,7 @@ public class EmailActivity extends AppCompatActivity {
     }
     public void fillTagsDropDown(){
         //create a new array for adapter
-        String[] tags = new String[]{"szülő név", "gyerek név", "gyerek rendfokozat", "tábor név", "tábor kezdet", "tábor vége"};
+        String[] tags = new String[]{"szülő név", "gyerek név", "tábor név", "tábor kezdet", "tábor vége"};
 
         //set datas with the new arraylist
         dropdown_tag = findViewById(R.id.spinner_tag);
@@ -151,11 +151,69 @@ public class EmailActivity extends AppCompatActivity {
     private void insertTag(String text){
         String original = contentEditText.getText().toString();
         int pos = contentEditText.getSelectionStart();
+
         String pre = original.substring(0,pos);
         String suf = original.substring(pos);
+        switch (text){
+            case "szülő név":
+                text = "szulo_nev";
+                break;
+            case "gyerek név":
+                text = "gyerek_nev";
+                break;
+            case "tábor név":
+                text = "tabor_nev";
+                break;
+            case "tábor kezdet":
+                text = "tabor_kezdet";
+                break;
+            case "tábor vége":
+                text = "tabor_vege";
+                break;
+        }
         original = pre + "{"+text+"} "+suf;
+
         contentEditText.setText(original);
         contentEditText.setSelection(pos+text.length()+3);
+    }
+
+    //Select template
+    private void selectTemplate(String text){
+        String subject, content;
+        Resources res = getResources();
+        switch(text){
+            case "Tájékoztatás első táborosoknak":
+                subject = "Kapcsolatfelvétel";
+                content= res.getString(R.string.kapcsolatfelvetel)+res.getString(R.string.alairas);
+                break;
+
+            case "Táborral kapcsolatos tudnivalók":
+                subject = "Tábor információk";
+                content=res.getString(R.string.tudnivalok)+res.getString(R.string.alairas);
+                break;
+
+            case "Információ kérés gyerekről":
+                subject = "Szükséges adatok";
+                content= res.getString(R.string.plusz_informacio) + res.getString(R.string.alairas) ;
+                break;
+
+            default:
+                subject = "";
+                content="";
+        }
+        subjectEditText.setText(subject);
+        contentEditText.setText(content);
+    }
+
+    //Parsing
+    public void parseCampName(JSONObject jsonObject){
+        String name = jsonObject.optString("name");
+        Map<String, String> m = new HashMap<>();
+        m.put("name", jsonObject.optString("name"));
+        m.put("from", jsonObject.optString("from"));
+
+        activeCampNames.add(m.get("name"));
+        activeCampIds.add(m.get("from"));
     }
 
     private void makeGetRequest() {
@@ -190,22 +248,10 @@ public class EmailActivity extends AppCompatActivity {
         mRequestQueue.add(req);
     }
 
-    //Parsing
-    public void parseCampName(JSONObject jsonObject){
-        String name = jsonObject.optString("name");
-        Map<String, String> m = new HashMap<>();
-        m.put("name", name);
-
-        camps.add(m.get("name"));
-    }
-
     //Send email to the server
     private void makePostRequest(){
-        String email=dropdown_to.getSelectedItem().toString();
-        String subject=subjectEditText.getText().toString();
-        String content=contentEditText.getText().toString();
 
-        String url = "http://10.0.2.2:8080/sendemail";//+"?"+"email=\""+email+"\"&subject=\""+subject+"\"&content=\""+content+"\"";
+        String url = "http://10.0.2.2:8080/sendemail";
 
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -219,42 +265,24 @@ public class EmailActivity extends AppCompatActivity {
             }
         }) {
             protected Map<String, String> getParams() {
-                Map<String, String> data = new HashMap<String, String>();
-                data.put("email", dropdown_to.getSelectedItem().toString());
+                Map<String, String> data = new HashMap<>();
+                int id = dropdown_to.getSelectedItemPosition();
+                switch(id){
+                    case 0:
+                        data.put("email", "all");
+                        break;
+                    case 1:
+                        data.put("email", "first");
+                        break;
+                    default:
+                        data.put("email", activeCampIds.get(id-2));
+                }
                 data.put("subject", subjectEditText.getText().toString());
                 data.put("content", contentEditText.getText().toString());
-                sent=true;
+                System.out.println(data.toString());
                 return data;
             }
         };
         mRequestQueue.add(MyStringRequest);
-    }
-
-    //Select template
-    private void selectTemplate(String text){
-        String subject, content;
-        Resources res = getResources();
-        switch(text){
-            case "Tájékoztatás táborról":
-                subject = "Tájékoztató";
-                content= res.getString(R.string.tajekoztato)+res.getString(R.string.alairas);
-                break;
-
-            case "Fontos tudnivalók":
-                subject = "Tábor információk";
-                content=res.getString(R.string.tudnivalok)+res.getString(R.string.alairas);
-                break;
-
-            case "Információ kérés gyerekről":
-                subject = "Szükséges adatok";
-                content= res.getString(R.string.plusz_informacio) + res.getString(R.string.alairas) ;
-                break;
-
-            default:
-                subject = "";
-                content="";
-        }
-        subjectEditText.setText(subject);
-        contentEditText.setText(content);
     }
 }
