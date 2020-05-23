@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -22,13 +22,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CampsActivity extends AppCompatActivity {
+public class CampsActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = ChildrenActivity.class.getName();
     ListView list;
     List<Map<String, String>> camps;
@@ -42,7 +41,8 @@ public class CampsActivity extends AppCompatActivity {
         //Tablayout
         TabLayout tabLayout = findViewById(R.id.tabs);
         TabLayout.Tab tab = tabLayout.getTabAt(1);
-        tab.select();
+        if (tab != null)
+            tab.select();
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -66,20 +66,23 @@ public class CampsActivity extends AppCompatActivity {
         //Fill list view
         list = findViewById(R.id.simpleListView);
         camps = new ArrayList<>();
-        makeJsonArrayRequest();
+        makeGetRequest();
 
         adapter = new SimpleAdapter(this, camps, android.R.layout.simple_list_item_2, new String[] {"name", "from"}, new int[] {android.R.id.text1,android.R.id.text2});
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(CampsActivity.this, CampActivity.class);
-                intent.putExtra("campID", camps.get(position).get("from"));
+                intent.putExtra("campID", camps.get(position).get("id"));
                 startActivity(intent);
             }
         });
+
+        Button addCamp = findViewById(R.id.addCamp);
+        addCamp.setOnClickListener(this);
     }
 
-    private void makeJsonArrayRequest() {
+    private void makeGetRequest() {
         //RequestQueue initialized
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
         String CAMPS_URL = "http://10.0.2.2:8080/camps";
@@ -95,10 +98,12 @@ public class CampsActivity extends AppCompatActivity {
 
                         String name = jsonObject.optString("name");
                         String from = jsonObject.optString("from");
+                        String id = jsonObject.optString("id");
 
                         Map<String, String> m = new HashMap<>();
                         m.put("name", name);
                         m.put("from", from);
+                        m.put("id", id);
                         camps.add(m);
                     }
                     list.setAdapter(adapter);
@@ -116,5 +121,11 @@ public class CampsActivity extends AppCompatActivity {
             }
         });
         mRequestQueue.add(req);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(CampsActivity.this, AddCampActivity.class);
+        startActivity(intent);
     }
 }

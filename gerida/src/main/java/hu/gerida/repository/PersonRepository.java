@@ -28,5 +28,8 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     public List<Person> getChildListByHouse(String house);
 
     @Query("select p from Person p where planet= :planet")
-    public List<Person> getChildListByPlanet(String planet);    
+    public List<Person> getChildListByPlanet(String planet);
+    
+    @Query("UPDATE Person SET email = 'szuloteszt@gmail.com' where id=4")
+    public void updateById(int id);
 }

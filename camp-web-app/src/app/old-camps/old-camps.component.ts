@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Camp } from '../camp';
-import { CampServiceService } from '../camp-service.service';
+import { Camp } from '../model/camp/camp';
+import { CampService } from '../model/camp/camp.service';
 
 @Component({
   selector: 'app-old-camps',
@@ -11,7 +11,7 @@ export class OldCampsComponent implements OnInit {
   camps: Camp[];
   years: number[];
 
-  constructor(private campService: CampServiceService) { }
+  constructor(private campService: CampService) { }
 
   ngOnInit(): void {
     this.campService.findYears().subscribe(data => {

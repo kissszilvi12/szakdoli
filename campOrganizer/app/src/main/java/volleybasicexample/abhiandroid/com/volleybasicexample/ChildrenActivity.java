@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -65,7 +66,7 @@ public class ChildrenActivity extends AppCompatActivity {
 
 
         //Fill list view with datas from json
-        makeJsonArrayRequest();
+        makeGetRequest();
         adapter = new SimpleAdapter(this, children, android.R.layout.simple_list_item_2, new String[] {"name", "birthDate"}, new int[] {android.R.id.text1,android.R.id.text2});
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -76,12 +77,21 @@ public class ChildrenActivity extends AppCompatActivity {
             startActivity(intent);
             }
         });
+
+        Button add = findViewById(R.id.addChild);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChildrenActivity.this, AddChildActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    private void makeJsonArrayRequest() {
+    private void makeGetRequest() {
         //RequestQueue initialized
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
-        String CHILDREN_URL = "http://10.0.2.2:8080/";
+        String CHILDREN_URL = "http://10.0.2.2:8080/campers";
 
         JsonArrayRequest req = new JsonArrayRequest(CHILDREN_URL, new Response.Listener<JSONArray>() {
             @Override
@@ -92,6 +102,7 @@ public class ChildrenActivity extends AppCompatActivity {
                     for(int i=0; i < response.length(); i++){
                         JSONObject jsonObject = response.getJSONObject(i);
 
+                        String id = jsonObject.optString("id");
                         String name = jsonObject.optString("name");
                         String gender = jsonObject.optString("gender");
                         String birthDate = jsonObject.optString("birthDate");
@@ -106,12 +117,13 @@ public class ChildrenActivity extends AppCompatActivity {
                         //parent
                         JSONObject parent = new JSONObject(jsonObject.optString("parent"));
                         String parentName=parent.getString("name");
-                        String parentAddress=parent.getString("address");
-                        String parentPhone=parent.getString("phone");
-                        String parentEmail=parent.getString("email");
-                        String parentJob=parent.getString("job");
+                        String address=parent.getString("address");
+                        String phone=parent.getString("phone");
+                        String email=parent.getString("email");
+                        String job=parent.getString("job");
 
                         Map<String,String> m = new HashMap<>();
+                        m.put("id",id);
                         m.put("name",name);
                         m.put("birthDate", birthDate);
                         m.put("pos", pos);
@@ -125,10 +137,10 @@ public class ChildrenActivity extends AppCompatActivity {
                         m.put("other", other);
 
                         m.put("parentName", parentName);
-                        m.put("parentAddress", parentAddress);
-                        m.put("parentPhone",parentPhone);
-                        m.put("parentEmail", parentEmail);
-                        m.put("parentJob", parentJob);
+                        m.put("address", address);
+                        m.put("phone",phone);
+                        m.put("email", email);
+                        m.put("job", job);
 
                         children.add(m);
                     }

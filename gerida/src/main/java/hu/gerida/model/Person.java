@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -54,9 +55,11 @@ public class Person {
     @Column
     private int size;
 
+    @Lob
     @Column
     private String foodSensitivity;
 
+    @Lob
     @Column
     private String other;
 
@@ -70,32 +73,29 @@ public class Person {
     @JoinColumn
     private Parent parent;
 
-    // CONSTRUCTORS
-    public Person() {
+    //CONSTRUCTORS
+    public Person(){
         super();
-        this.camps = new ArrayList<Camp>();
+        camps = new ArrayList<>();
     }
-    public Person(String name, Gender gender, String birthDate, Position pos,
-            int size, String foodSensitivity, String other, List<Camp> camps,  /*parent*/  String parentName, int postCode, String country, String street, String phone, String email, String job) {
+
+    public Person(String name, Gender gender, Date birthDate, Planet planet, House house, Position pos, int size, String foodSensitivity, String other,
+            List<Camp> camps,  /*parent*/ Parent parent) {
         super();
-         try{
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-          java.sql.Date date = new java.sql.Date(df.parse(birthDate).getTime());
-            this.birthDate = date;
-        }catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.camps = new ArrayList<Camp>();
+        this.birthDate = birthDate;        
         this.name = name;
         this.gender = gender.toString();
         this.rating = Rank.PLUTO.toString();
+        this.house = house.toString();
+        this.planet = planet.toString();
         this.pos = pos.toString();
         this.size = size;
         this.foodSensitivity = foodSensitivity;
         this.other = other;
-        Parent p = new Parent(name, postCode, country, street, phone, email, job);
-        this.parent=p;
-        p.addChildren(this);
+        this.parent=parent;
+        parent.addChildren(this);
+
+        this.camps = new ArrayList<Camp>();
         for (Camp camp : camps)
             addCamp(camp);
     }
@@ -197,6 +197,8 @@ public class Person {
 
     //OTHER FUNCTIONS
     public void increaseRank() {
+        if(rating == null)
+            rating = Rank.PLUTO.toString();
         int actRank = Rank.valueOf(this.rating.toString()).ordinal();
         actRank+=1;
         this.rating = Rank.values()[actRank].toString();

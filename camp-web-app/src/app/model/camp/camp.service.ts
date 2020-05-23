@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Camp } from 'src/app/camp';
+import { Camp } from 'src/app/model/camp/camp';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CampServiceService {
+export class CampService {
   private campUrl: string;
 
   constructor(private http: HttpClient) { }
 
   public findActive(): Observable<Camp[]> {    
-    this.campUrl = 'http://localhost:8080/activeCamps';
+    this.campUrl = 'http://localhost:8080/activecamps';
     return this.http.get<Camp[]>(this.campUrl);
   }
 
   public findInactive(): Observable<Camp[]> {    
-    this.campUrl = 'http://localhost:8080/inactiveCamps';
+    this.campUrl = 'http://localhost:8080/inactivecamps';
     return this.http.get<Camp[]>(this.campUrl);
   }
 

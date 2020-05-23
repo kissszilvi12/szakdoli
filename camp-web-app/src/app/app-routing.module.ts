@@ -9,6 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ActiveCampsComponent } from './active-camps/active-camps.component';
 import { OldCampsComponent } from './old-camps/old-camps.component';
 import { ContactComponent } from './contact/contact.component';
+import { ConfirmSubmitComponent } from './confirm-submit/confirm-submit.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: "jelentkezes", component: RegistrationComponent},
   {path: "taborok", component: ActiveCampsComponent},
   {path: "regi-taborok", component: OldCampsComponent},
-  {path: "kapcsolat", component: ContactComponent}
+  {path: "kapcsolat", component: ContactComponent},
+  {path: "elkuldve", component: ConfirmSubmitComponent}
 ];
 
 @NgModule({

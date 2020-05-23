@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1D1D1"
+    tools:context="volleybasicexample.abhiandroid.com.volleybasicexample.AddCampActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_weight="1"
+        tools:ignore="MissingConstraints">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:stretchColumns="*"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/createCampDesc"
+                android:textColor="#000000"
+                android:textSize="40sp"
+                android:text="@string/tabor_letrehozas"
+                android:layout_span="2"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+       <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/campNameDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/cim"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/campNameEditText"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <EditText
+                android:id="@+id/fromEditText"
+                android:ems="7"
+                android:hint="@string/mettol"
+                android:inputType="textNoSuggestions"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <EditText
+                android:id="@+id/toEditText"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:hint="@string/meddig"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/themeDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/tema"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <RadioGroup
+                android:id="@+id/themeRadioGroup">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/harry_potter" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/egyeb" />
+            </RadioGroup>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/placeDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/helyszin"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <EditText
+                android:id="@+id/placeEditText"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:text="@string/parad"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/priceDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/ar"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <EditText
+                android:id="@+id/priceEditText"
+                android:ems="10"
+                android:inputType="number"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/maxDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/letszam"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <EditText
+                android:id="@+id/maxEditText"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/maximum_gyerek"
+                android:autofillHints="60"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/descriptionDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/leiras"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+                <EditText
+                    android:id="@+id/descriptionEditText"
+                    android:textColor="#000000"
+                    android:autofillHints=""
+                    android:gravity="start|top"
+                    android:hint="@string/leiras"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:ems="10"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="parent"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/addCamp"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:layout_span="2"
+                android:text="@string/letrehozas"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+    </TableLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

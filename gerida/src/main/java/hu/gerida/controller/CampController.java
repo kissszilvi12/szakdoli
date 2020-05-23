@@ -1,6 +1,5 @@
 package hu.gerida.controller;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hu.gerida.model.Camp;
@@ -32,10 +32,17 @@ public class CampController {
         }
         
 		return personList;
+	}	
+
+	@CrossOrigin
+	@GetMapping("/camp/{id}")
+	public Camp getCampById(@PathVariable("id") int id){
+		Camp camp = campRepository.findById(id);
+		return camp;
 	}
 
 	@CrossOrigin
-	@GetMapping("/activeCamps")
+	@GetMapping("/activecamps")
 	public List<Camp> getActiveCampList(){
 		List<Camp> campList = new ArrayList<>();
 		Iterable<Camp> camps = campRepository.getActiveCampList();
@@ -45,20 +52,13 @@ public class CampController {
 	}
 
 	@CrossOrigin
-	@GetMapping("/inactiveCamps")
+	@GetMapping("/inactivecamps")
 	public List<Camp> getInactiveCampList(){
 		List<Camp> campList = new ArrayList<>();
 		Iterable<Camp> camps = campRepository.getInactiveCampList();
 		for (Camp c : camps)
 			campList.add(c);
 		return campList;
-	}
-
-	@CrossOrigin
-	@GetMapping("/camp/{from}")
-	public Camp getCampByFrom(@PathVariable("from") String from) throws ParseException{
-		Camp camp = campRepository.getCampByFrom(from);
-		return camp;
 	}
 
 	@CrossOrigin
@@ -93,11 +93,19 @@ public class CampController {
 		}
 		return yearList;
 	}
-	
+
 	@CrossOrigin
-	@PostMapping("/addcamp")
+	@PostMapping("/addCamp")
 	public List<Camp> createCamper(@RequestBody Camp camp){
         campRepository.save(camp);
+        return campRepository.findAll();
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/addcamp")
+	public  List<Camp> createCamper(@RequestBody String request, String name, String from, String till, String theme, String price, String place, String description, String max){
+		Camp camp = new Camp(name, from, till, theme, Integer.parseInt(price), place, description, Integer.parseInt(max));
+		campRepository.save(camp);
         return campRepository.findAll();
 	}
 

@@ -11,9 +11,12 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -21,10 +24,14 @@ import javax.persistence.Table;
 @Table(name="Camp")
 
 public class Camp{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @Column
     private String name;
 
-    @Id
+    @Column
     private Date fromDate;
 
     @Column
@@ -39,6 +46,7 @@ public class Camp{
     @Column
     private String place;
 
+    @Lob
     @Column
     private String description;
 
@@ -56,16 +64,18 @@ public class Camp{
     //CONSTRUCTORS
     public Camp() {
         super();
+        campers = new ArrayList<>();
     }
 
-    public Camp(final String name, final String from, final String till, final String theme, final int price, final String place, final String description, final int max/*, List<Person> campers*/) {
+    public Camp(String name, String from, String till, String theme, int price, String place, String description, int max) {
+        super();
         try{
-            final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            final Date fromToDate = new Date(df.parse(from).getTime());
-            final Date tillToDate = new Date(df.parse(till).getTime());
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date fromToDate = new Date(df.parse(from).getTime());
+            Date tillToDate = new Date(df.parse(till).getTime());
             this.fromDate = fromToDate;
             this.tillDate = tillToDate;
-        }catch(final ParseException e){
+        }catch(ParseException e){
             e.printStackTrace();
         }
         this.campers=new ArrayList<>();
@@ -80,6 +90,9 @@ public class Camp{
     }
 
     //GETTERS
+    public int getId(){
+        return id;
+    }
     public String getName() {
         return name;
     }
@@ -125,11 +138,15 @@ public class Camp{
     }
 
     //SETTERS
-    public void setName(final String name) {
+    public void setId(int id){
+        this.id=id;
+    }
+    
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setFrom(final String from) {
+    public void setFrom(String from) {
         try{
             final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             final java.sql.Date fromToDate = new java.sql.Date(df.parse(from).getTime());
@@ -139,7 +156,7 @@ public class Camp{
         }
     }
 
-    public void setTill(final String till) {
+    public void setTill(String till) {
         try{
             final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             final java.sql.Date tillToDate = new java.sql.Date(df.parse(till).getTime());
@@ -149,19 +166,19 @@ public class Camp{
         }
     }
 
-    public void setTheme(final Theme theme) {
+    public void setTheme(Theme theme) {
         this.theme = theme.toString();
     }
 
-    public void setPrice(final int price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public void setPlace(final String place) {
+    public void setPlace(String place) {
         this.place = place;
     }
 
-    public void setDescription(final String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -169,19 +186,22 @@ public class Camp{
         isActive = !isActive;
     }
 
-    public void setMax(final int max){
+    public void setMax(int max){
         this.max=max;
     }
 
     //OTHER FUNCTIONS
-    public void addCamper(final Person camper) {
+    public void addCamper(Person camper) {
         this.campers.add(camper);
         if(campers.size()==max && isActive==false){
             setIsActive();
         }
     }
 
-    public void removeCamper(final Person camper) {
+    public void removeCamper(Person camper) {
         this.campers.remove(camper);
+        if(campers.size()==max && isActive==false){
+            setIsActive();
+        }
     }
 }

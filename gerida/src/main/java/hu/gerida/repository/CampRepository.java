@@ -15,14 +15,17 @@ public interface CampRepository extends CrudRepository<Camp, Integer> {
     @Override
     public List<Camp> findAll();
 
-    @Query("select c from Camp c where is_active=1")
+    @Query("select c from Camp c where id=:id")
+    public Camp findById(int id);
+
+    @Query("select c from Camp c where isActive=1")
     public List<Camp> getActiveCampList();
 
-    @Query("select c from Camp c where is_active=0")
+    @Query("select c from Camp c where isActive=0")
     public List<Camp> getInactiveCampList();
 
-    @Query("select c from Camp c where from_date=:from")
-    public Camp getCampByFrom(String from);
+//    @Query("select c from Camp c where fromDate=:from")
+//    public Camp getCampByFrom(String from);
 
     @Query("select c from Camp c where name=:name")
     public List<Camp> getCampByName(String name);
@@ -30,7 +33,7 @@ public interface CampRepository extends CrudRepository<Camp, Integer> {
     @Query("select c from Camp c where theme=:theme")
     public List<Camp> getCampByTheme(String theme);
 
-    @Query("select c from Camp c where YEAR(from_date)=:y")
+    @Query("select c from Camp c where YEAR(fromDate)=:y")
     public List<Camp> getCampByYear(int y);
 
     @Query("select YEAR(from_date) from Camp c")

@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmSubmitComponent } from './confirm-submit/confirm-submit.component';
 
 const routes: Routes = []
 
@@ -29,7 +30,8 @@ const routes: Routes = []
     OldCampsComponent,
     ContactComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConfirmSubmitComponent
   ],
   imports: [
     BrowserModule,

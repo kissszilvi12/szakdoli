@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1D1D1"
+    tools:context="volleybasicexample.abhiandroid.com.volleybasicexample.AddChildActivity">
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    android:layout_weight="1"
+    tools:ignore="MissingConstraints">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints,ScrollViewSize"
+        android:scrollbars="horizontal"
+        android:gravity="center_horizontal"
+        android:stretchColumns="*"
+        android:layout_marginHorizontal="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/createChildDesc"
+                android:textColor="#000000"
+                android:textSize="40sp"
+                android:text="@string/gyermek_hozzaad"
+                android:layout_span="2"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/parentDatasDesc"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:text="@string/szuloadatai"
+                android:layout_span="2"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/parentNameDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/nev"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/parentNameEditText"
+                android:ems="10"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/postCodeDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/irsz"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/postCodeEditText"
+                android:ems="10"
+                android:inputType="number"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/countryDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/varos"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/countryEditText"
+                android:ems="10"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/streetDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/utca"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/streetEditText"
+                android:ems="10"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/phoneDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/telefon"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/phoneEditText"
+                android:ems="10"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/emailDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/email"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/emailEditText"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/jobDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/munkahely"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/jobEditText"
+                android:ems="10"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor" />
+        </TableRow>
+
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints,ScrollViewSize"
+        android:scrollbars="horizontal"
+        android:gravity="center_horizontal"
+        android:stretchColumns="*"
+        android:layout_marginHorizontal="10dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/childDatasDesc"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:text="@string/gyermek_adatai"
+                android:layout_span="2"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/nameDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/nev"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <EditText
+                android:id="@+id/nameEditText"
+                android:ems="10"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/birthDateDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/szul"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <EditText
+                android:id="@+id/birthDateEditText"
+                android:ems="10"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="LabelFor,TextFields" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/genderDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/nem"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <RadioGroup
+                android:id="@+id/genderRadioGroup">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fiu" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lany" />
+            </RadioGroup>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/planetDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/bolygo"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <Spinner
+                android:id="@+id/planetSpinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/priceDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/haz"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <Spinner
+                android:id="@+id/houseSpinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/maxDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/pozicio"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <Spinner
+                android:id="@+id/posSpinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/sizeDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/meret"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <Spinner
+                android:id="@+id/sizeSpinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/foodSensitivityDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/etel"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:scrollbars="none"
+                android:layout_weight="1"
+                tools:ignore="MissingConstraints">
+                <EditText
+                    android:id="@+id/foodSensitivityEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:textColor="#000000"
+                    android:autofillHints=""
+                    android:gravity="start|top"
+                    android:hint="@string/etel_hint"
+                    android:inputType="textMultiLine"
+                    android:minLines="3" />
+            </ScrollView>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" >
+            <TextView
+                android:id="@+id/descriptionDesc"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/egyeb"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:scrollbars="none"
+                android:layout_weight="1"
+                tools:ignore="MissingConstraints">
+                <EditText
+                    android:id="@+id/descriptionEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:textColor="#000000"
+                    android:autofillHints=""
+                    android:gravity="start|top"
+                    android:hint="@string/tudnivalo_hint"
+                    android:inputType="textMultiLine"
+                    android:minLines="3" />
+            </ScrollView>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableCamps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints,ScrollViewSize"
+        android:scrollbars="horizontal"
+        android:gravity="center_horizontal"
+        android:stretchColumns="*"
+        android:layout_marginHorizontal="10dp">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="@string/taborok"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/addChild"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        android:text="@string/letrehozas"/>
+</LinearLayout>
+</ScrollView>
+</android.support.constraint.ConstraintLayout>

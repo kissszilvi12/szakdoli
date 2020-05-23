@@ -18,9 +18,31 @@
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints,ScrollViewSize"
         android:scrollbars="horizontal"
-        android:gravity="center"
-        android:stretchColumns="*"
+        android:gravity="center_horizontal"
         android:layout_marginHorizontal="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <Spinner
+                android:id="@+id/setSpinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:id="@+id/setChild"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pencil"
+                android:layout_marginHorizontal="20dp"/>
+
+            <ImageButton
+                android:id="@+id/deleteChild"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/delete"/>
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -34,7 +56,7 @@
                 android:fontFamily="sans-serif-black"
                 android:textSize="40sp"
                 android:gravity="center_horizontal"
-                android:layout_span="2"
+                android:layout_span="3"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
                 app:layout_constraintRight_toLeftOf="parent"
@@ -57,6 +79,7 @@
                 android:id="@+id/rank"
                 android:textColor="#000000"
                 android:textSize="20sp"
+                android:layout_span="2"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
                 app:layout_constraintRight_toLeftOf="parent"
@@ -80,6 +103,7 @@
                 android:id="@+id/year"
                 android:textColor="#000000"
                 android:textSize="20sp"
+                android:layout_span="2"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
                 app:layout_constraintRight_toLeftOf="parent"
@@ -102,6 +126,7 @@
                 android:id="@+id/house"
                 android:textColor="#000000"
                 android:textSize="20sp"
+                android:layout_span="2"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
                 app:layout_constraintRight_toLeftOf="parent"
@@ -145,7 +170,7 @@
                 android:id="@+id/parentName"
                 android:textColor="#000000"
                 android:fontFamily="sans-serif-black"
-                android:layout_span="2"
+                android:layout_span="3"
                 android:gravity="center_horizontal"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="parent"
@@ -158,10 +183,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
             <TextView
-                android:id="@+id/parentPhone"
+                android:id="@+id/phone"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:layout_span="2"
+                android:layout_span="3"
                 android:gravity="center_horizontal"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
@@ -171,10 +196,10 @@
 
         <TableRow>
             <TextView
-                android:id="@+id/parentEmail"
+                android:id="@+id/email"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:layout_span="2"
+                android:layout_span="3"
                 android:gravity="center_horizontal"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
@@ -186,10 +211,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
             <TextView
-                android:id="@+id/parentAddress"
+                android:id="@+id/address"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:layout_span="2"
+                android:layout_span="3"
                 android:gravity="center_horizontal"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
@@ -199,10 +224,10 @@
 
         <TableRow>
             <TextView
-                android:id="@+id/parentJob"
+                android:id="@+id/job"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:layout_span="2"
+                android:layout_span="3"
                 android:gravity="center_horizontal"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
@@ -230,7 +255,7 @@
                 android:id="@+id/other"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:layout_span="2"
+                android:layout_span="3"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
                 app:layout_constraintRight_toLeftOf="parent"

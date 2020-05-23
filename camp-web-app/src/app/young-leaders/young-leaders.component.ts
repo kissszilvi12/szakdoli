@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonService } from '../person.service';
-import { Person } from '../person';
+import { PersonService } from '../model/person/person.service';
+import { Person } from '../model/person/person';
 
 @Component({
   selector: 'app-young-leaders',

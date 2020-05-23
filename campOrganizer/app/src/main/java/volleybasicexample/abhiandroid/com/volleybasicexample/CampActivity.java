@@ -1,7 +1,6 @@
 package volleybasicexample.abhiandroid.com.volleybasicexample;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -47,7 +45,7 @@ public class CampActivity extends AppCompatActivity {
         list = findViewById(R.id.simpleListView);
         adapter = new SimpleAdapter(this, children, android.R.layout.simple_list_item_2, new String[] {"name", "birthDate"}, new int[] {android.R.id.text1,android.R.id.text2});
         list.setAdapter(adapter);
-        makeJsonArrayRequest();
+        makeGetRequest();
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -59,7 +57,7 @@ public class CampActivity extends AppCompatActivity {
         });
     }
 
-    private void makeJsonArrayRequest() {
+    private void makeGetRequest() {
         //RequestQueue initialized
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
         String id = getIntent().getStringExtra("campID");
@@ -108,22 +106,9 @@ public class CampActivity extends AppCompatActivity {
                 tv.setText(campData.get(k));
             }
         }
-
-        //Set background color by house
-        ConstraintLayout cl = findViewById(R.id.constraintLayout);
-        switch(campData.get("theme")){
-            case "HARRY_POTTER":
-
-                break;
-            case "OTHER":
-
-                break;
-        }
     }
 
     private void parseChildren(JSONArray campers){
-        //children.clear();
-        //list = findViewById(R.id.simpleListView);
         try {
             // Parsing json array response
             // loop through each json object
@@ -164,10 +149,10 @@ public class CampActivity extends AppCompatActivity {
 
                 //parent
                 m.put("parentName", parentName);
-                m.put("parentAddress", parentAddress);
-                m.put("parentPhone",parentPhone);
-                m.put("parentEmail", parentEmail);
-                m.put("parentJob", parentJob);
+                m.put("address", parentAddress);
+                m.put("phone",parentPhone);
+                m.put("email", parentEmail);
+                m.put("job", parentJob);
 
                 children.add(m);
             }

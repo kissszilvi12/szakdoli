@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CampServiceService } from '../camp-service.service';
-import { Camp } from '../camp';
-import { Person } from '../person';
-import { PersonService } from '../person.service';
+import { CampService } from '../model/camp/camp.service';
+import { Camp } from '../model/camp/camp';
+import { Person } from '../model/person/person';
+import { PersonService } from '../model/person/person.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Parent } from '../parent';
-import { ParentService } from '../parent.service';
+import { Parent } from '../model/parent/parent';
 
 @Component({
   selector: 'app-registration',
@@ -14,21 +13,22 @@ import { ParentService } from '../parent.service';
 })
 export class RegistrationComponent implements OnInit {
   camps: Camp[];
+  parent: Parent;
   person: Person;
-  parent: Parent
 
-  constructor(private route: ActivatedRoute, private router: Router,private personService: PersonService, private parentService: ParentService, private campService: CampServiceService) {
-      this.person = new Person();
+  constructor(private route: ActivatedRoute, private router: Router, private campService: CampService, private personService: PersonService) {
+      this.camps=[];
       this.parent = new Parent();
+      this.person = new Person();
+      this.person.camps =[];
    }
 
   onSubmit() {
-    this.parentService.save(this.parent).subscribe(result => this.gotoHome());
-    this.personService.save(this.person).subscribe(result => this.gotoHome());
+    this.personService.save(this.person, this.parent).subscribe(result => this.gotoConfirm());
   }
  
-  gotoHome() {
-    this.router.navigate(['/']);
+  gotoConfirm() {
+    this.router.navigate(['/elkuldve']);
   }
 
   ngOnInit(): void {

@@ -41,7 +41,6 @@ public class EmailActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     EditText contentEditText;
     EditText subjectEditText;
-    Boolean sent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,6 @@ public class EmailActivity extends AppCompatActivity {
         contentEditText = findViewById(R.id.contentEditText);
         subjectEditText = findViewById(R.id.subjectEditText);
         activeCampIds = new ArrayList<>();
-        sent = false;
 
         //Tablayout
         TabLayout tabLayout = findViewById(R.id.tabs);
@@ -72,14 +70,10 @@ public class EmailActivity extends AppCompatActivity {
                         break;
                 }
             }
-
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
-
+            public void onTabUnselected(TabLayout.Tab tab) {}
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
 
         fillToDropDown();
@@ -210,16 +204,16 @@ public class EmailActivity extends AppCompatActivity {
         String name = jsonObject.optString("name");
         Map<String, String> m = new HashMap<>();
         m.put("name", jsonObject.optString("name"));
-        m.put("from", jsonObject.optString("from"));
+        m.put("id", jsonObject.optString("id"));
 
         activeCampNames.add(m.get("name"));
-        activeCampIds.add(m.get("from"));
+        activeCampIds.add(m.get("id"));
     }
 
     private void makeGetRequest() {
         //RequestQueue initialized
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
-        String CAMPS_URL = "http://10.0.2.2:8080/activeCamps";
+        String CAMPS_URL = "http://10.0.2.2:8080/activecamps";
 
         JsonArrayRequest req = new JsonArrayRequest(CAMPS_URL, new Response.Listener<JSONArray>() {
             @Override
@@ -279,7 +273,6 @@ public class EmailActivity extends AppCompatActivity {
                 }
                 data.put("subject", subjectEditText.getText().toString());
                 data.put("content", contentEditText.getText().toString());
-                System.out.println(data.toString());
                 return data;
             }
         };

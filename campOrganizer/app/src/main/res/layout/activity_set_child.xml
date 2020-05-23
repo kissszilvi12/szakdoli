@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1D1D1"
+    tools:context="volleybasicexample.abhiandroid.com.volleybasicexample.SetChildActivity">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="MissingConstraints,ScrollViewSize"
+                android:scrollbars="horizontal"
+                android:gravity="center_horizontal"
+                android:stretchColumns="*"
+                android:layout_marginHorizontal="10dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp">
+                    <TextView
+                        android:id="@+id/setChildDesc"
+                        android:textColor="#000000"
+                        android:textSize="40sp"
+                        android:text="@string/gyermek_szerkeszt"
+                        android:layout_span="2"
+                        android:gravity="center_horizontal"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintBottom_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="parent"
+                        app:layout_constraintRight_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp">
+                    <TextView
+                        android:id="@+id/editTextDesc"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black"
+                        app:layout_constraintBottom_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="parent"
+                        app:layout_constraintRight_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent" />
+                </TableRow>
+                <TableRow
+                android:id="@+id/buttonRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                    <Button
+                        android:id="@+id/setChildButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:layout_span="2"
+                        android:background="#4A4A4A"
+                        android:textColor="#ffffff"
+                        app:layout_constraintBottom_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="parent"
+                        app:layout_constraintRight_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        android:text="@string/modositas"/>
+                </TableRow>
+            </TableLayout>
+</android.support.constraint.ConstraintLayout>

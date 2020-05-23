@@ -1,5 +1,12 @@
 use camp_organizer_db;
 
+SELECT * FROM Parent  WHERE id in (SELECT id FROM Person WHERE id in (SELECT id FROM Camp  WHERE YEAR(from_date)="2020" and month(from_date)="08" and day(from_date)="11"));
+
+ALTER TABLE Camp CHANGE COLUMN name name VARCHAR(1000);
+
+select YEAR(from_date) from Camp;
+select * from Camp where id="1";
+
 select * from Camp;
 select * from Person;
 select * from Parent;

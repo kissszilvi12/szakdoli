@@ -47,6 +47,7 @@ public class Parent {
     }
 
     public Parent(String name, int postCode, String country, String street, String phone, String email, String job) {
+        super();
         this.name = name;
         this.address = new Address(postCode, country, street, this);
         this.phone = phone;

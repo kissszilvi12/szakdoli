@@ -6,8 +6,8 @@
     <string name="email_kuldes">Email küldés</string>
     <string name="szulo_adatai">Szülő adatai:</string>
     <string name="egyeb_tudnivalok">Egyéb tudnivalók</string>
-    <string name="evfolyam">Évfolyam:</string>
-    <string name="helyszin">Helyszín:</string>
+    <string name="evfolyam">Évfolyam</string>
+    <string name="helyszin">Helyszín</string>
     <string name="ar">Ár:</string>
     <string name="taborozok">Táborozók:</string>
     <string name="sign">-</string>
@@ -19,7 +19,7 @@
     <string name="leveliras">Levélírás</string>
     <string name="kuldes">Küldés</string>
     <string name="haz">Ház</string>
-    <string name ="kapcsolatfelvetel">"Kedves {szulo_nev}!"
+    <string name="kapcsolatfelvetel">"Kedves {szulo_nev}!"
                         "\n"
                         "Örömmel köszöntöm Önt és gyermekét  a GERIDA Lovagrend nevében! Mivel elöször jelentkezett hozzánk táborba engedje meg, hogy pár szóban tájékoztassam a nálunk évek óta bevált szokásokról.\n"
                         "\n"
@@ -69,7 +69,6 @@
                         "\n"
                         "Jelen levelem egy elözetes tájékoztatás, azért, hogy a Kedves Szülök, a táborral kapcsolatos legfontosabb dolgokról minél elöbb tájékoztatva legyenek. Innentöl kezdve a táborig több olyan levelet is fogunk küldeni, ami a táborral kapcsolatos részfeladatokról értesítjük majd Önöket, és amikre több estetben válaszokat is várunk, kérem figyeljék majd ezeket a leveleket! Kérem ugyanakkor, hogyha a fentieken kívül bármi kérdés merül fel a Gerida Lovagrenddel vagy a táborral kapcsolatban hívjanak bizalommal!\n"
     </string>
-
     <string name="plusz_informacio">"Kedves {szulo_nev}!\n"
                         "\n"
                         "A Gerida táborokban nagy hangsúlyt fordítunk a tartalmas programokra és arra, hogy minden gyermek gyermekek lehetöség szerint megtalálja a számára legérdekesebb, legszórakoztatóbb játékot, elfoglaltságot. Tudjuk ugyanakkor azt is hogy egy-egy újonnan jövö gyermeknek nem egyszerü a beilleszkedés egy számára ismeretlen és nagyrészt idegen környezetbe, ahol sokszor senkit, vagy jobb esetben egy-két gyermeket ismer magán kívül. A gyermekekkel közvetlenül foglalkozó vezetök mindent elkövetnek, hogy ez a beilleszkedés minél könnyebb, zökkenö mentesebb legyen, de nagyon nagy segítség lenne az ez irányú munkánkban, ha egy pár gondolatban röviden bemutatnák nekünk gyermeküket. Elsösorban a következö szempontok lennének fontosak:\n"
@@ -77,11 +76,52 @@
                         "\t- Fontos lenne azt is tudnunk, hogy szakértöi véleménnyel rendelkezik-e (BTM, SNI, stb.)\n"
                         "\n"
                         "Kérem ezen bemutatókat minél elöbb legyenek szívesek elküldeninekünk!\n"</string>
-
     <string name="alairas">"\n"
                         "Tisztelettel: \n"
                         "\n"
                         "\t\tMikó László\n"
                         "\t\ttáborvezetö\n"
                         "\t\t60-20-9523 221\n\n"</string>
+    <string name="harry_potter">Harry Potter</string>
+    <string name="egyeb">Egyéb</string>
+    <string name="tabor_letrehozas">Tábor létrehozás</string>
+    <string name="cim">Cím</string>
+    <string name="tema">Téma</string>
+    <string name="leiras">Leírás</string>
+    <string name="letszam">Létszám</string>
+    <string name="letrehozas">Létrehozás</string>
+    <string name="tabor_leiras_hint">Tábor rövid leírása</string>
+    <string name="maximum_gyerek">Maximum gyerek</string>
+    <string name="parad">Parádfürdő, Zöldövezet Vendégház</string>
+    <string name="meddig">Tábor vége</string>
+    <string name="mettol">Tábor kezdete</string>
+    <string name="gyermek_hozzaad">Gyermek hozzáadása</string>
+    <string name="nem">Nem</string>
+    <string name="szul">Szül. idő</string>
+    <string name="fiu">Fiú</string>
+    <string name="lany">Lány</string>
+    <string name="bolygo">Bolygó</string>
+    <string name="pozicio">Pozíció</string>
+    <string name="tudnivalo_hint">Egyéb tudnivaló</string>
+    <string name="etel_hint">Allergia, étel érzékenység</string>
+    <string name="meret">Méret</string>
+    <string name="etel">Étel</string>
+    <string name="datum_kivalasztasa">Dátum kiválasztása</string>
+    <string name="nev">Név</string>
+    <string name="irsz">Irsz.</string>
+    <string name="varos">Város</string>
+    <string name="utca">Utca</string>
+    <string name="telefon">Telefon</string>
+    <string name="munkahely">Munkahely</string>
+    <string name="szuloadatai">Szülő adatai</string>
+    <string name="gyermek_adatai">Gyermek adatai</string>
+    <string name="mardekar">Mardekár</string>
+    <string name="hugrabug">Hugrabug</string>
+    <string name="hollohat">Hollóhát</string>
+    <string name="griffendel">Griffendél</string>
+    <string name="nincs">Nincs beosztva</string>
+    <string name="szerkeszt">Szerkeszt</string>
+    <string name="torles">Törlés</string>
+    <string name="modositas">Módosítás</string>
+    <string name="gyermek_szerkeszt">Gyermek szerkesztése</string>
 </resources>

@@ -1,9 +1,6 @@
 package hu.gerida.controller;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.sql.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -14,7 +11,6 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.persistence.TemporalType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -38,14 +34,12 @@ public class EmailController {
 
     @CrossOrigin
     @PostMapping("/sendemail")
-    public String sendemail(@RequestBody final String request, final String email, final String subject,
-            final String content) throws MessagingException, ParseException {
+    public String sendemail(@RequestBody String request, String email, String subject, String content) throws MessagingException, ParseException {
         sendmail(email, subject, content);
         return "Email sent successfully";
     }
 
-    private void sendmail(final String to, final String subject, final String content)
-            throws MessagingException, ParseException {
+    private void sendmail(final String to, final String subject, final String content) throws MessagingException, ParseException {
         final Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -62,13 +56,11 @@ public class EmailController {
         msg.setSubject(subject);
 
         List<Parent> parents;
-
-
         switch (to) {
             case "all":
                 parents = pRepository.getAllParents();
                 for (Parent p : parents) {
-                    String newContent = ofRegistered(content, p);
+                    String newContent = changeData(content, p);
                     msg.setContent(newContent, "text/plain");
                     msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(p.getEmail()));
                     msg.setSentDate(new java.util.Date());
@@ -78,7 +70,7 @@ public class EmailController {
             case "first":
                 parents = pRepository.getFirstCampParents();
                 for (Parent p : parents) {
-                    String newContent = ofRegistered(content, p);
+                    String newContent = changeData(content, p);
                     msg.setContent(newContent, "text/plain");
                     msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(p.getEmail()));
                     msg.setSentDate(new java.util.Date());
@@ -86,14 +78,12 @@ public class EmailController {
                 }
                 break;
             default:
-                final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                final java.sql.Date fromToDate = new java.sql.Date(df.parse(to).getTime());
-                parents = pRepository.getParentsByCamp(fromToDate);
+                parents = pRepository.getParentsByCamp(Long.parseLong(to));
                 System.out.println(parents.toString()+" PARENT******");
-                Camp camp = cRepository.getCampByFrom(to.toString());
+                Camp camp = cRepository.findById(Integer.parseInt(to));
                 for (Parent p : parents) {
                     System.out.println(p.getEmail()+" EMAIL******");
-                    String newContent = ofRegistered(content, p, camp);
+                    String newContent = changeData(content, p, camp);
                     msg.setContent(newContent, "text/plain");
                     msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(p.getEmail()));
                     msg.setSentDate(new java.util.Date());
@@ -102,7 +92,7 @@ public class EmailController {
         }
     }
 
-    private String ofRegistered(String content, Parent p, Camp c){
+    private String changeData(String content, Parent p, Camp c){
         content = content.replace("{szulo_nev}", p.getName());
         String children="";
         for(Person child : p.getChildren()){
@@ -110,18 +100,19 @@ public class EmailController {
         }
         content = content.replace("{gyerek_nev}", children);
         content = content.replace("{tabor_nev}", c.getName());
-        content = content.replace("{tabor_kezdet}", c.getFrom().toString());
-        content = content.replace("{tabor_vege}", c.getTill().toString());
+        content = content.replace("{tabor_kezdet}", String.valueOf(c.getFrom()));
+        content = content.replace("{tabor_vege}", String.valueOf(c.getTill()));
         return content;
      }
 
-    private String ofRegistered(String content, Parent p) {
+    private String changeData(String content, Parent p) {
         content = content.replace("{nev}", p.getName());
         String children="";
         for(Person child : p.getChildren()){
             children += child.getName()+",";
         }
-        children.substring(0, children.length()-1);
+        if (children.length()>0)
+            children.substring(0, children.length()-1);
         content = content.replace("{gyerek_nev}", children);
         return content;
      }

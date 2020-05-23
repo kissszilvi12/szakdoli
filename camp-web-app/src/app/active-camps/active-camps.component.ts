@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CampServiceService } from '../camp-service.service';
-import { Camp } from '../camp';
+import { CampService } from '../model/camp/camp.service';
+import { Camp } from '../model/camp/camp';
 
 @Component({
   selector: 'app-active-camps',
@@ -10,7 +10,7 @@ import { Camp } from '../camp';
 export class ActiveCampsComponent implements OnInit {
   camps: Camp[];
 
-  constructor(private campService: CampServiceService) { }
+  constructor(private campService: CampService) { }
 
   ngOnInit(): void {
     this.campService.findActive().subscribe(data => {

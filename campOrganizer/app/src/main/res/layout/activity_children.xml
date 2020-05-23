@@ -13,12 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         tools:ignore="MissingConstraints"
-        android:background="#8F4343">
+        android:background="#371212">
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabTextColor="#ffffff"
+            app:tabSelectedTextColor="#BDBDBD"
             app:tabMode="scrollable">
 
             <android.support.design.widget.TabItem
@@ -41,28 +43,38 @@
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="#ECD9D9"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/appbar"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/addChild"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#ECD9D9"
-            app:layout_constraintBottom_toTopOf="@+id/appbar"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:text="@string/hozzaad"
+            app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.483" >
+            app:layout_constraintTop_toBottomOf="parent" />
 
-            <ListView
-                android:id="@+id/simpleListView"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="60dp"
-                android:clipToPadding="true"
-                android:divider="#600808"
-                android:dividerHeight="1dp"
-                android:scrollbars="horizontal" />
+        <ListView
+            android:id="@+id/simpleListView"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="true"
+            android:divider="#600808"
+            android:dividerHeight="1dp"
+            android:scrollbars="horizontal" />
 
-        </LinearLayout>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
